@@ -64,3 +64,52 @@ emailInput.addEventListener("change", (e)=> {
     estilizarInputIncorreto(emailInput, emailHelper);
   }
 })
+
+// ---------- VALIDAÇÃO senha ---------- //
+let senhaInput = document.getElementById("senha");
+let senhaLabel = document.querySelector('label[for="senha"]');
+let senhaHelper = document.getElementById("senha-helper");
+
+togglePopup(senhaInput, senhaLabel)
+
+senhaInput.addEventListener("blur", (e)=>{
+  let valor = e.target.value
+
+
+  if(valor == ""){
+    senhaHelper.innerText = "Precisa inserir uma senha"
+        estilizarInputIncorreto(senhaInput, senhaHelper)}
+        else{
+          estilizarInputCorreto(senhaInput, senhaHelper)}
+
+})
+
+
+// ---------- CONFIRMAÇÂO DE SENHA ---------- //
+let confirmaSenhaInput = document.getElementById("confirma-senha");
+let confirmaSenhaLabel = document.querySelector('label[for="confirma-senha"]');
+let confirmaSenhaHelper = document.getElementById("confirma-senha-helper");
+
+togglePopup(confirmaSenhaInput, confirmaSenhaLabel)
+
+confirmaSenhaInput.addEventListener("blur", (e)=>{
+  let valor = e.target.value
+
+  if(valor == senhaInput.value){
+    console.log("senha iguais")
+    confirmaSenhaHelper.innerText = "Precisa inserir uma senha"
+    estilizarInputCorreto(confirmaSenhaInput, confirmaSenhaHelper)
+    
+  }else{
+    console.log("senha não confere")
+    confirmaSenhaHelper.innerText = "as senhas precisam ser iguais"
+    estilizarInputIncorreto(confirmaSenhaInput, confirmaSenhaHelper)
+  
+
+    
+    
+  }
+   
+      
+
+})
